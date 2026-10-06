@@ -19,7 +19,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gcc make libwayland-dev wayland-protocols \
-            clang-format clang-tidy clang-tools shellcheck
+            clang-format clang-tidy clang-tools shellcheck python3
+
+      - name: Check mascot packs
+        run: make test-mascots
+
+      - name: Build each mascot
+        run: |
+          for mascot in hacker maintenance archivist minimal; do
+            make mascot MASCOT="$mascot"
+          done
 
       - name: Check formatting
         run: make format-check

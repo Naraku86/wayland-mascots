@@ -1,0 +1,17 @@
+# No personal monitor names or device paths required.
+cat_height=64
+cat_align=right
+cat_x_offset=24
+cat_y_offset=0
+overlay_height=72
+overlay_position=top
+overlay_opacity=0
+layer=overlay
+fps=60
+keypress_duration=100
+enable_hand_mapping=1
+idle_sleep_timeout=300
+enable_debug=0
+# Optional: find your device with mascot-find-devices.
+# keyboard_device=/dev/input/by-id/YOUR-KEYBOARD-event-kbd
+# monitor=eDP-1

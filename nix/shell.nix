@@ -4,6 +4,7 @@ pkgs.mkShellNoCC {
     # Build dependencies
     # Core
     pkg-config # Finds build dependencies
+    python3 # Embeds mascot poses
     gcc # C/C++ compiler and also for `make`
 
     # Wayland

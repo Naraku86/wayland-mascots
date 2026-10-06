@@ -60,6 +60,22 @@ DEPS = $(OBJECTS:.o=.d) $(PROTOCOL_OBJECTS:.o=.d)
 
 all: $(TARGET)
 
+# Mascots reuse the existing embedded-SVG animation engine.
+MASCOT ?= minimal
+.PHONY: mascot test-mascots install-user
+mascot:
+	@case "$(MASCOT)" in minimal|hacker|maintenance|archivist) ;; *) echo "Unknown mascot: $(MASCOT)" >&2; exit 2;; esac
+	ASSETS_DIR="assets/mascots/$(MASCOT)" ./scripts/embed_assets.sh
+	$(MAKE) release
+
+test-mascots:
+	python3 tests/test_mascots.py
+
+install-user: $(TARGET)
+	install -Dm755 $(TARGET) "$(DESTDIR)$(HOME)/.local/bin/wayland-mascot"
+	install -Dm755 scripts/find_input_devices.sh "$(DESTDIR)$(HOME)/.local/bin/mascot-find-devices"
+	install -Dm644 mascot.conf.example "$(DESTDIR)$(HOME)/.local/share/wayland-mascots/mascot.conf.example"
+
 # Generate embedded assets (manual target - run when assets change)
 embed-assets: 
 	./$(EMBED_SCRIPT)
