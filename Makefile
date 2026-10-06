@@ -62,10 +62,11 @@ all: $(TARGET)
 
 # Mascots reuse the existing embedded-SVG animation engine.
 MASCOT ?= minimal
+export MASCOT
 .PHONY: mascot test-mascots install-user
 mascot:
-	@case "$(MASCOT)" in minimal|hacker|maintenance|archivist) ;; *) echo "Unknown mascot: $(MASCOT)" >&2; exit 2;; esac
-	ASSETS_DIR="assets/mascots/$(MASCOT)" ./scripts/embed_assets.sh
+	@case "$$MASCOT" in minimal|hacker|maintenance|archivist) ;; *) echo "Unknown mascot: $$MASCOT" >&2; exit 2;; esac
+	ASSETS_DIR="assets/mascots/$$MASCOT" ./scripts/embed_assets.sh
 	$(MAKE) release
 
 test-mascots:

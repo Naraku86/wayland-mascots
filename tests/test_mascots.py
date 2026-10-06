@@ -1,6 +1,7 @@
 """Check poses, pixel geometry and deterministic embedding."""
 from pathlib import Path
 import importlib.util
+import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
 
@@ -29,4 +30,13 @@ with tempfile.TemporaryDirectory() as temporary:
         pass
     else:
         raise AssertionError('Missing poses must fail')
-print('Four packs verified: five distinct poses, correct geometry, reproducible embedding.')
+with tempfile.TemporaryDirectory() as temporary:
+    marker = Path(temporary) / 'must-not-exist'
+    result = subprocess.run(
+        ['make', 'mascot', f'MASCOT=invalid"; touch {marker}; #'],
+        cwd=root, capture_output=True, text=True,
+    )
+    assert result.returncode != 0
+    assert 'Unknown mascot:' in result.stderr
+    assert not marker.exists(), 'Mascot names must never execute shell commands'
+print('Four packs verified: distinct poses, geometry, embedding and safe selection.')

@@ -1,9 +1,9 @@
 # Artwork
 
-Los cuatro paquetes de `assets/mascots/` proceden de diseños creados con asistencia de IA para esta personalización y convertidos a poses SVG. Los nombres públicos describen diseños genéricos; no representan una licencia oficial de ninguna franquicia.
+The four packs in `assets/mascots/` originate from AI-assisted designs made for this customization and converted into SVG poses. Public names describe generic designs; they do not imply an official franchise license. GIF previews render these same poses.
 
-El contribuyente ofrece bajo la licencia MIT del repositorio los derechos que tenga sobre estos recursos y sus modificaciones. Esto no garantiza que todo contenido generado por IA sea protegible por copyright, exclusivo, ni que se hayan concedido derechos de terceros. No se afirma autoría humana sobre cada píxel generado.
+The contributor offers the rights they hold in these assets and modifications under the repository's MIT license. This does not guarantee that all AI output is copyrightable or exclusive, or grant third-party rights. Human authorship is not claimed for every generated pixel.
 
-Los recursos originales de `assets/new/` se conservan del repositorio upstream bajo sus avisos originales. Los encabezados de NanoSVG mantienen su propia licencia.
+Original resources in `assets/new/` retain upstream notices. NanoSVG headers retain their own license.
 
-Antes de aportar arte nuevo, proporciona su fuente, autor y permiso de redistribución. No incluyas capturas, referencias descargadas o personajes reconocibles de terceros sin comprobar esos permisos.
+Artwork contributions must identify their source, author and redistribution permission. Check permissions before including third-party characters, downloaded references or screenshots.
